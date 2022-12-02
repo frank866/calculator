@@ -13,8 +13,13 @@
 
         <div class="screen-section">
             <input type="text" maxlength="25" id="screen">
-            <button id="del" class="del" onclick="dele()">Del</button>
-            <button id="clear" class="clear" onclick="clearScreen('')">Clr</button>
+            <button id="del" class="del" onclick="del()">Del</button>
+            <button id="clear" class="clear" onclick="clearScreen()">Clr</button>
+        </div>
+
+        <div class="mid-section">
+            <button onclick="display('(')">(</button>
+            <button onclick="display(')')">)</button>
         </div>
 
         <div class="buttons-section">

@@ -1,35 +1,113 @@
-const del = document.getElementById('del')
-const clear = document.getElementById('clear')
+const screen = document.getElementById('screen');
+const dele = document.getElementById('del').style;
+const clear = document.getElementById('clear').style;
 
-function display(operator){
-    document.getElementById('screen').value += operator
-    del.style.display = 'block'
-    clear.style.display = 'none'
+function display(value){
+    screen.value += value;
+
+    dele.display = 'block';
+    clear.display = 'none';
+
+
+    if(screen.value.length > 25){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else{}
+    
+
+    if(screen.value.includes('--') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('-+') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('-/') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('-*') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('++') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('+-') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('+/') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('+*') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('//') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('/+') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('/-') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('/*') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('***') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('*+') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('*/') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('*-') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('((') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('))') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else{}
+
+
+    if(screen.value[0] === '/'){
+        screen.value = '';
+    }
+    else if(screen.value[0] === '*'){
+        screen.value = '';
+    }
+    else if(screen.value[0] === '+'){
+        screen.value = '';
+    }
+    else{}
 }
+
 
 function result(){
-    let view = document.getElementById('screen').value
-    let solve = eval(view)
-    document.getElementById('screen').value = solve
-    if(view === ""){
-        document.getElementById('screen').value = ""
-        del.style.display = 'block'
-        clear.style.display = 'none'
-    }
-    else{
-        del.style.display = 'none'
-        clear.style.display = 'block'
+    let solve = eval(screen.value);
+    screen.value = solve;
+
+    dele.display = 'none';
+    clear.display = 'block';
+
+    if(screen.value === 'undefined'){
+        screen.value = '';
+        dele.display = 'block';
+        clear.display = 'none';
     }
 }
 
-function clearScreen(nothing) {  
-    document.getElementById('screen').value = nothing
-    del.style.display = 'block'
-    clear.style.display = 'none'
+
+function del(){
+    screen.value = screen.value.slice(0, -1);
 }
 
-function dele() {
-    let view = document.getElementById('screen').value
-    let newView = view.slice(0, -1)
-    document.getElementById('screen').value = newView
+
+function clearScreen(){
+    screen.value = '';
+
+    dele.display = 'block';
+    clear.display = 'none';
 }
