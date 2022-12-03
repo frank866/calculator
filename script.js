@@ -69,6 +69,21 @@ function display(value){
     else if(screen.value.includes('))') === true){
         screen.value = screen.value.slice(0, -1);
     }
+    else if(screen.value.includes('..') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('.+') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('.*') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('./') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
+    else if(screen.value.includes('.-') === true){
+        screen.value = screen.value.slice(0, -1);
+    }
     else{}
 
 
@@ -79,6 +94,9 @@ function display(value){
         screen.value = '';
     }
     else if(screen.value[0] === '+'){
+        screen.value = '';
+    }
+    else if(screen.value[0] === ')'){
         screen.value = '';
     }
     else{}
