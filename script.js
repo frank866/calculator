@@ -11,7 +11,6 @@ function display(value){
     if(screen.value.length > 25){
         screen.value = screen.value.slice(0, -1);
     }
-    else{}
     
     const operatorError = ['--', '-+', '-/', '-*', '++', '+-', '+/', '+*', '//', '/+', '/-', '/*', '***', '*+', '*/', '*-', '((', '()', '))', '..', '.+', '.*', './', '.-', '.)', '.('];
 
@@ -19,7 +18,6 @@ function display(value){
         if(screen.value.includes(operatorError[i]) === true){
          screen.value = screen.value.slice(0, -1);
         }
-        else{}
     }
 
     const startError = ['/', '*', '+', ')'];
