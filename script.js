@@ -8,100 +8,28 @@ function display(value){
     dele.display = 'block';
     clear.display = 'none';
 
-
     if(screen.value.length > 25){
         screen.value = screen.value.slice(0, -1);
     }
     else{}
     
+    const operatorError = ['--', '-+', '-/', '-*', '++', '+-', '+/', '+*', '//', '/+', '/-', '/*', '***', '*+', '*/', '*-', '((', '()', '))', '..', '.+', '.*', './', '.-', '.)', '.('];
 
-    if(screen.value.includes('--') === true){
-        screen.value = screen.value.slice(0, -1);
+    for(let i = 0; i < operatorError.length; i++){
+        if(screen.value.includes(operatorError[i]) === true){
+         screen.value = screen.value.slice(0, -1);
+        }
+        else{}
     }
-    else if(screen.value.includes('-+') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('-/') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('-*') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('++') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('+-') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('+/') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('+*') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('//') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('/+') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('/-') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('/*') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('***') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('*+') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('*/') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('*-') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('((') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('))') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('..') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('.+') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('.*') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('./') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else if(screen.value.includes('.-') === true){
-        screen.value = screen.value.slice(0, -1);
-    }
-    else{}
 
+    const startError = ['/', '*', '+', ')'];
 
-    if(screen.value[0] === '/'){
-        screen.value = '';
+    for(let i = 0; i < startError.length; i++){
+        if(screen.value[0] === startError[i]){
+            screen.value = '';
+        }
     }
-    else if(screen.value[0] === '*'){
-        screen.value = '';
-    }
-    else if(screen.value[0] === '+'){
-        screen.value = '';
-    }
-    else if(screen.value[0] === ')'){
-        screen.value = '';
-    }
-    else{}
 }
-
 
 function result(){
     let solve = eval(screen.value);
@@ -117,11 +45,9 @@ function result(){
     }
 }
 
-
 function del(){
     screen.value = screen.value.slice(0, -1);
 }
-
 
 function clearScreen(){
     screen.value = '';
